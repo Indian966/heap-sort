@@ -1,0 +1,29 @@
+unsorted = [12, 30, 6, 7, 4, 13, 8, 11, 50, 24, 2, 5, 10]
+
+def heap_sort(unsorted):
+    partent_node = (len(unsorted) - 2) / 2
+
+    for parent in range(partent_node, -1, -1):
+        build_max_heap(unsorted, parent, len(unsorted) - 1)
+    
+    for sorted_num in range(len(unsorted) - 1, 0, -1):
+        unsorted[sorted_num], unsorted[0] =\
+            unsorted[0], unsorted[sorted_num]
+        build_max_heap(unsorted, 0, sorted_num - 1)
+
+def build_max_heap(maxheap, parent, end):
+    child = parent * 2 + 1
+
+    while child <= end:
+        if child + 1 <= end and maxheap[child] < maxheap[child + 1]:
+            child += 1
+
+        if maxheap[parent] < maxheap[child]:
+            maxheap[parent], maxheap[child] =\
+                maxheap[child], maxheap[parent]
+            parent = child
+            child = parent * 2 + 1
+        else:
+            break
+
+print(unsorted)
