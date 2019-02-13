@@ -1,0 +1,12 @@
+unsorted = [12, 30, 6, 7, 4]
+
+def heap_sort(unsorted)
+    max = len(unsorted)
+    l_index = 2*index
+    r_index = 2*index +1
+    top_index = 0
+    for index in range(1, max)
+        if unsorted[index] <= unsorted[index+1]
+                unsorted[l_index] = unsorted[index+1]
+
+print(unsorted)
